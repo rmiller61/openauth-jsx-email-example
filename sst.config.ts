@@ -9,5 +9,14 @@ export default $config({
       home: "cloudflare",
     };
   },
-  async run() {},
+  async run() {
+    const hono = new sst.cloudflare.Worker("Hono", {
+      url: true,
+      handler: "index.ts",
+    });
+
+    return {
+      api: hono.url,
+    };
+  },
 });
