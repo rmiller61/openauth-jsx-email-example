@@ -1,19 +1,28 @@
 {
-    "name": "openauth-jsx-email-example",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-      "hono": "^4.2.3",
-      "sst": "latest"
-    },
-    "devDependencies": {
-      "@cloudflare/workers-types": "^4.20240405.0"
-    }
+  "name": "openauth-jsx-email-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openauthjs/openauth": "^0.3.2",
+    "hono": "^4.6.16",
+    "next": "15.1.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sst": "latest",
+    "valibot": "^1.0.0-beta.11"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240405.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
   }
+}
