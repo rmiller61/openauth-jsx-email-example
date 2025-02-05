@@ -1,0 +1,141 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      hono:
+        specifier: ^4.2.3
+        version: 4.6.20
+      sst:
+        specifier: latest
+        version: 3.7.9
+    devDependencies:
+      '@cloudflare/workers-types':
+        specifier: ^4.20240405.0
+        version: 4.20250204.0
+
+packages:
+
+  '@cloudflare/workers-types@4.20250204.0':
+    resolution: {integrity: sha512-mWoQbYaP+nYztx9I7q9sgaiNlT54Cypszz0RfzMxYnT5W3NXDuwGcjGB+5B5H5VB8tEC2dYnBRpa70lX94ueaQ==}
+
+  aws4fetch@1.0.20:
+    resolution: {integrity: sha512-/djoAN709iY65ETD6LKCtyyEI04XIBP5xVvfmNxsEP0uJB5tyaGBztSryRr4HqMStr9R06PisQE7m9zDTXKu6g==}
+
+  hono@4.6.20:
+    resolution: {integrity: sha512-5qfNQeaIptMaJKyoJ6N/q4gIq0DBp2FCRaLNuUI3LlJKL4S37DY/rLL1uAxA4wrPB39tJ3s+f7kgI79O4ScSug==}
+    engines: {node: '>=16.9.0'}
+
+  jose@4.15.9:
+    resolution: {integrity: sha512-1vUQX+IdDMVPj4k8kOxgUqlcK518yluMuGZwqlr44FS1ppZB/5GWh4rZG89erpOBOJjU/OBsnCVFfapsRz6nEA==}
+
+  jose@5.2.3:
+    resolution: {integrity: sha512-KUXdbctm1uHVL8BYhnyHkgp3zDX5KW8ZhAKVFEfUbU2P8Alpzjb+48hHvjOdQIyPshoblhzsuqOwEEAbtHVirA==}
+
+  lru-cache@6.0.0:
+    resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
+    engines: {node: '>=10'}
+
+  object-hash@2.2.0:
+    resolution: {integrity: sha512-gScRMn0bS5fH+IuwyIFgnh9zBdo4DV+6GhygmWM9HyNJSgS0hScp1f5vjtm7oIIOiT9trXrShAkLFSc2IqKNgw==}
+    engines: {node: '>= 6'}
+
+  oidc-token-hash@5.0.3:
+    resolution: {integrity: sha512-IF4PcGgzAr6XXSff26Sk/+P4KZFJVuHAJZj3wgO3vX2bMdNVp/QXTP3P7CEm9V1IdG8lDLY3HhiqpsE/nOwpPw==}
+    engines: {node: ^10.13.0 || >=12.0.0}
+
+  openid-client@5.6.4:
+    resolution: {integrity: sha512-T1h3B10BRPKfcObdBklX639tVz+xh34O7GjofqrqiAQdm7eHsQ00ih18x6wuJ/E6FxdtS2u3FmUGPDeEcMwzNA==}
+
+  sst-darwin-arm64@3.7.9:
+    resolution: {integrity: sha512-7GurprJW+VLbLQMmiQh9htToj3eQOucgqZac/gqB+ioB8uzQqvmuAFgCd7D7BBdPb5uRWOCHcs51TlJ76mJwCQ==}
+    cpu: [arm64]
+    os: [darwin]
+
+  sst-darwin-x64@3.7.9:
+    resolution: {integrity: sha512-oow5KpjavFvbohrVn0WqMmuL+CYYua/SUcPtZIouM+EdrUgHzo1f6dZ7jh1nDmBbabUZ5q/PLPQZBVWJNyGYmQ==}
+    cpu: [x64]
+    os: [darwin]
+
+  sst-linux-arm64@3.7.9:
+    resolution: {integrity: sha512-IhfyG9NXAQQtXDbvLAsIao9wvLPS7khhx2tyGc5qN4dsdM6dorSSjOt5i/aPxuQraTjbnC9oSlTI9GJnSISnFA==}
+    cpu: [arm64]
+    os: [linux]
+
+  sst-linux-x64@3.7.9:
+    resolution: {integrity: sha512-XY5l9Nn29JrpyxGYGUvXAkbHjslFNDOz6qx+iXHqz07h1W6l0cNmG7/nJMWUzebIzCUAlery0krJ/QrPC5Xarw==}
+    cpu: [x64]
+    os: [linux]
+
+  sst-linux-x86@3.7.9:
+    resolution: {integrity: sha512-O9A1Pzlmd1rLhvM1V68xj6iaiuPv1U680iZ8EiuxVADRpZC/0x/GWEB3Ms5a63/lzYuBQD1feOlgv/QzYaeNQw==}
+    cpu: [x86]
+    os: [linux]
+
+  sst@3.7.9:
+    resolution: {integrity: sha512-d+54xJdJ0Cuzz3AkXcjTjgLgtB794Uc6sPiBqY+eP2AzGN9lFryiighUefP9oo5eqNJbIdtQtWe6lwKwUjhXQQ==}
+    hasBin: true
+
+  yallist@4.0.0:
+    resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
+
+snapshots:
+
+  '@cloudflare/workers-types@4.20250204.0': {}
+
+  aws4fetch@1.0.20: {}
+
+  hono@4.6.20: {}
+
+  jose@4.15.9: {}
+
+  jose@5.2.3: {}
+
+  lru-cache@6.0.0:
+    dependencies:
+      yallist: 4.0.0
+
+  object-hash@2.2.0: {}
+
+  oidc-token-hash@5.0.3: {}
+
+  openid-client@5.6.4:
+    dependencies:
+      jose: 4.15.9
+      lru-cache: 6.0.0
+      object-hash: 2.2.0
+      oidc-token-hash: 5.0.3
+
+  sst-darwin-arm64@3.7.9:
+    optional: true
+
+  sst-darwin-x64@3.7.9:
+    optional: true
+
+  sst-linux-arm64@3.7.9:
+    optional: true
+
+  sst-linux-x64@3.7.9:
+    optional: true
+
+  sst-linux-x86@3.7.9:
+    optional: true
+
+  sst@3.7.9:
+    dependencies:
+      aws4fetch: 1.0.20
+      jose: 5.2.3
+      openid-client: 5.6.4
+    optionalDependencies:
+      sst-darwin-arm64: 3.7.9
+      sst-darwin-x64: 3.7.9
+      sst-linux-arm64: 3.7.9
+      sst-linux-x64: 3.7.9
+      sst-linux-x86: 3.7.9
+
+  yallist@4.0.0: {}
