@@ -10,13 +10,31 @@ export default $config({
     };
   },
   async run() {
-    const hono = new sst.cloudflare.Worker("Hono", {
+    // const hono = new sst.cloudflare.Worker("Hono", {
+    //   url: true,
+    //   handler: "index.ts",
+    // });
+
+    // const auth = new sst.cloudflare.Worker("Auth", {
+    //   url: true,
+    //   handler: "auth.ts",
+    //   environment: {
+    //     HONO_API: hono.url,
+    //   },
+    // });
+
+    // return {
+    //   api: hono.url,
+    //   auth: auth.url,
+    // };
+
+    const auth = new sst.cloudflare.Worker("CloudflareAuth", {
+      handler: "./issuer.ts",
       url: true,
-      handler: "index.ts",
     });
 
     return {
-      api: hono.url,
+      url: auth.url,
     };
   },
 });

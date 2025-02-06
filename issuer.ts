@@ -4,6 +4,8 @@ import { PasswordProvider } from "@openauthjs/openauth/provider/password";
 import { PasswordUI } from "@openauthjs/openauth/ui/password";
 import { type ExecutionContext } from "@cloudflare/workers-types";
 import { subjects } from "./lib/subjects";
+import { CodeProvider } from "@openauthjs/openauth/provider/code";
+import { CodeUI } from "@openauthjs/openauth/ui/code";
 
 async function getUser(email: string) {
   // Get user from database
@@ -17,9 +19,7 @@ export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext) {
     return issuer({
       subjects,
-      storage: MemoryStorage({
-        persist: "./persist.json",
-      }),
+      storage: MemoryStorage(),
       providers: {
         password: PasswordProvider(
           PasswordUI({
@@ -30,6 +30,13 @@ export default {
               if (password.length < 8) {
                 return "Password must be at least 8 characters";
               }
+            },
+          })
+        ),
+        code: CodeProvider(
+          CodeUI({
+            sendCode: async (email, code) => {
+              console.log(email, code);
             },
           })
         ),
