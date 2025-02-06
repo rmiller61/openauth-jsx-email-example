@@ -3,17 +3,18 @@
 /* eslint-disable */
 /* deno-fmt-ignore-file */
 
-import "sst";
+import "sst"
 declare module "sst" {
-  export interface Resource {}
+  export interface Resource {
+  }
 }
-// cloudflare
+// cloudflare 
 import * as cloudflare from "@cloudflare/workers-types";
 declare module "sst" {
   export interface Resource {
-    CloudflareAuth: cloudflare.Service;
+    "CloudflareAuth": cloudflare.Service
   }
 }
 
-import "sst";
-export {};
+import "sst"
+export {}

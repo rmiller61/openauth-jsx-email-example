@@ -6,6 +6,7 @@ import { type ExecutionContext } from "@cloudflare/workers-types";
 import { subjects } from "./lib/subjects";
 import { CodeProvider } from "@openauthjs/openauth/provider/code";
 import { CodeUI } from "@openauthjs/openauth/ui/code";
+import { renderMessage } from "./lib/email";
 
 async function getUser(email: string) {
   // Get user from database
@@ -36,7 +37,8 @@ export default {
         code: CodeProvider(
           CodeUI({
             sendCode: async (email, code) => {
-              console.log(email, code);
+              const message = await renderMessage(code);
+              console.log(message);
             },
           })
         ),
