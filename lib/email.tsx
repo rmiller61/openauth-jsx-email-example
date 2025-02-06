@@ -1,5 +1,10 @@
 import { render, Html, Body, Heading, Text } from "jsx-email";
 import * as React from "react";
+import { Resend } from "resend";
+
+export const createEmailClient = async (apiKey: string) => {
+  return new Resend(apiKey);
+};
 
 export const renderMessage = async (code: string) => {
   return render(
