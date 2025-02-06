@@ -27,7 +27,14 @@ export default {
         password: PasswordProvider(
           PasswordUI({
             sendCode: async (email, code) => {
-              console.log(email, code);
+              const html = await renderMessage(code);
+              const response = await sendEmail(env.RESEND_API_KEY, {
+                from: "onboarding@resend.dev",
+                to: email,
+                subject: "Your code",
+                html,
+              });
+              console.log(response);
             },
             validatePassword: (password) => {
               if (password.length < 8) {
