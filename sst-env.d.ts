@@ -6,7 +6,15 @@
 import "sst"
 declare module "sst" {
   export interface Resource {
-    "ResendApiKey": {
+    "SESAccessKeyId": {
+      "type": "sst.sst.Secret"
+      "value": string
+    }
+    "SESSecretAccessKey": {
+      "type": "sst.sst.Secret"
+      "value": string
+    }
+    "SenderEmail": {
       "type": "sst.sst.Secret"
       "value": string
     }

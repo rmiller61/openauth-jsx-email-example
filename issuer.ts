@@ -6,7 +6,7 @@ import { type ExecutionContext } from "@cloudflare/workers-types";
 import { subjects } from "./lib/subjects";
 import { CodeProvider } from "@openauthjs/openauth/provider/code";
 import { CodeUI } from "@openauthjs/openauth/ui/code";
-import { renderMessage, sendEmail } from "./lib/email";
+import { EmailClient } from "./lib/email";
 
 async function getUser(email: string) {
   // Get user from database
@@ -15,11 +15,17 @@ async function getUser(email: string) {
 }
 
 interface Env {
-  RESEND_API_KEY: string;
+  SENDER_EMAIL: string;
+  SES_ACCESS_KEY_ID: string;
+  SES_SECRET_ACCESS_KEY: string;
 }
 
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext) {
+    const emailClient = new EmailClient({
+      accessKeyId: env.SES_ACCESS_KEY_ID,
+      secretAccessKey: env.SES_SECRET_ACCESS_KEY,
+    });
     return issuer({
       subjects,
       storage: MemoryStorage(),
@@ -27,14 +33,12 @@ export default {
         password: PasswordProvider(
           PasswordUI({
             sendCode: async (email, code) => {
-              const html = await renderMessage(code);
-              const response = await sendEmail(env.RESEND_API_KEY, {
-                from: "onboarding@resend.dev",
+              await emailClient.send({
+                from: env.SENDER_EMAIL,
                 to: email,
                 subject: "Your code",
-                html,
+                code,
               });
-              console.log(response);
             },
             validatePassword: (password) => {
               if (password.length < 8) {
@@ -50,14 +54,12 @@ export default {
                 throw new Error("Email is required");
               }
               const { email } = claims;
-              const html = await renderMessage(code);
-              const response = await sendEmail(env.RESEND_API_KEY, {
-                from: "onboarding@resend.dev",
+              await emailClient.send({
+                from: env.SENDER_EMAIL,
                 to: email,
                 subject: "Your code",
-                html,
+                code,
               });
-              console.log(response);
             },
           })
         ),
@@ -66,9 +68,9 @@ export default {
         return true;
       },
       success: async (ctx, value) => {
-        if (value.provider === "password") {
+        if (value.provider === "code") {
           return ctx.subject("user", {
-            id: await getUser(value.email),
+            id: await getUser(value.claims.email),
           });
         }
         throw new Error("Invalid provider");
