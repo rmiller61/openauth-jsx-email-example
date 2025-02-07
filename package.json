@@ -12,9 +12,9 @@
   "license": "ISC",
   "dependencies": {
     "@openauthjs/openauth": "^0.3.2",
+    "aws4fetch": "^1.0.20",
     "jsx-email": "^2.7.0",
     "react": "^19.0.0",
-    "resend": "^4.1.2",
     "sst": "latest",
     "valibot": "^1.0.0-beta.11"
   },
