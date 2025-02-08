@@ -9,10 +9,12 @@ export CLOUDFLARE_API_TOKEN=aaaaaaaa_aaaaaaaaaaaa_aaaaaaaa
 export CLOUDFLARE_DEFAULT_ACCOUNT_ID=aaaaaaaa_aaaaaaaaaaaa_aaaaaaaa
 ```
 
-Next, leverage SST secrets to load your Resend API key into the app:
+Next, leverage SST secrets to load your environment variables into the app:
 
 ```
-sst secret set ResendApiKey re_xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+sst secret set SenderEmail xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+sst secret set SESAccessKeyId xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+sst secret set SESSecretAccessKey xxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 ## Run the auth server
