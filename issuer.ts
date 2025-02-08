@@ -18,6 +18,7 @@ interface Env {
   SENDER_EMAIL: string;
   SES_ACCESS_KEY_ID: string;
   SES_SECRET_ACCESS_KEY: string;
+  LOGO_URL?: string;
 }
 
 export default {
@@ -38,6 +39,7 @@ export default {
                 to: email,
                 subject: "Your code",
                 code,
+                logoUrl: env.LOGO_URL,
               });
             },
             validatePassword: (password) => {
@@ -59,6 +61,7 @@ export default {
                 to: email,
                 subject: "Your code",
                 code,
+                logoUrl: env.LOGO_URL,
               });
             },
           })

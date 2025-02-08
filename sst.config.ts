@@ -21,6 +21,7 @@ export default $config({
         SENDER_EMAIL: senderEmail.value,
         SES_ACCESS_KEY_ID: accessKeyId.value,
         SES_SECRET_ACCESS_KEY: secretAccessKey.value,
+        //LOGO_URL: "https://image-deployment-storage.s3.us-east-1.amazonaws.com/logo.png",
       },
     });
 
