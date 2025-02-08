@@ -10,6 +10,8 @@ interface SendEmailArgs {
 }
 
 export class EmailClient extends AwsClient {
+  endpoint: string =
+    "https://email.us-east-1.amazonaws.com/v2/email/outbound-emails";
   constructor({
     accessKeyId,
     secretAccessKey,
@@ -84,33 +86,30 @@ export class EmailClient extends AwsClient {
   async send(args: SendEmailArgs) {
     const { to, subject, from, code } = args;
     const html = await this.renderHtml(code);
-    let resp = await this.fetch(
-      "https://email.us-east-1.amazonaws.com/v2/email/outbound-emails",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
+    let resp = await this.fetch(this.endpoint, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        Destination: {
+          ToAddresses: [to],
         },
-        body: JSON.stringify({
-          Destination: {
-            ToAddresses: [to],
-          },
-          FromEmailAddress: from,
-          Content: {
-            Simple: {
-              Subject: {
-                Data: subject,
-              },
-              Body: {
-                Html: {
-                  Data: html,
-                },
+        FromEmailAddress: from,
+        Content: {
+          Simple: {
+            Subject: {
+              Data: subject,
+            },
+            Body: {
+              Html: {
+                Data: html,
               },
             },
           },
-        }),
-      }
-    );
+        },
+      }),
+    });
     const respText = await resp.json();
     console.log(resp.status + " " + resp.statusText);
     console.log(respText);
